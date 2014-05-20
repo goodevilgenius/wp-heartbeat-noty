@@ -2,11 +2,11 @@
 /**
  * WordPress Heartbeat Notifications Class
  */
-class Wp_Heartbeat_Notify {
+class Wp_Heartbeat_Noty {
 	
 	var $args = array(
 	
-		// Enable Wp_Heartbeat_Notify on admin or theme
+		// Enable Wp_Heartbeat_Noty on admin or theme
 		'context'			=>	array( 'admin', 'front' ),
 		
 		// User needed capability
@@ -69,8 +69,10 @@ class Wp_Heartbeat_Notify {
 		if ( $this->args['native_jquery'] ) 
 			$dependency[] = 'jquery';
 		
-		wp_enqueue_script( 'wp_hearbeat_notify_js', $this->args['base_url'] . '/js/wp-heartbeat-notify.min.js', $dependency, null, false );
-		wp_enqueue_style( 'wp_hearbeat_notify_css', $this->args['base_url'] . '/css/wp-heartbeat-notify.css' );
+		wp_enqueue_script( 'noty_js', $this->args['base_url'] . '/js/noty/packaged/jquery.noty.packaged.min.js', $dependency, null, false );
+		wp_enqueue_script( 'wp_hearbeat_noty_js', $this->args['base_url'] . '/js/wp-heartbeat-noty.min.js', array('noty_js'), null, false );
+
+		wp_enqueue_style( 'wp_hearbeat_noty_css', $this->args['base_url'] . '/css/wp-heartbeat-noty.css' );
 		
 	}
 	
@@ -147,7 +149,7 @@ class Wp_Heartbeat_Notify {
 	 *
 	 *	@arg Array $args Options
 	 */
-	static function notify( array $args ) {
+	static function noty( array $args ) {
 		
 		$current_user = wp_get_current_user();
 		
@@ -166,4 +168,4 @@ class Wp_Heartbeat_Notify {
 		
 	}
 
-} // Class Wp_Hearbeat_Notify
+} // Class Wp_Hearbeat_Noty

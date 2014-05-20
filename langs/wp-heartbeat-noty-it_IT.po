@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Wp Heartbeat Notify\n"
+"Project-Id-Version: Wp Heartbeat Noty\n"
 "POT-Creation-Date: 2013-06-19 23:58+0100\n"
 "PO-Revision-Date: 2013-06-19 23:58+0100\n"
 "Last-Translator: Comodolab <micc83@gmail.com>\n"
@@ -15,11 +15,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../wp-heartbeat-notify.php:41
+#: ../wp-heartbeat-noty.php:41
 msgid "New Article"
 msgstr "Nuovo articolo"
 
-#: ../wp-heartbeat-notify.php:42
+#: ../wp-heartbeat-noty.php:42
 msgid "There's a new post, why don't you give a look at"
 msgstr "C'è un nuovo articolo, perchè non dai un'occhiata a"
 
