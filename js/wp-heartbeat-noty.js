@@ -6,8 +6,8 @@ jQuery(document).ready( function($) {
     $(document).on( 'heartbeat-tick.my_tick', function( e, data ) {
         
         // To understand better how it works just uncomment following lines and give a look at browser console
-        //noty('tick tock');
-		//console.log(data);
+        noty('tick tock');
+		console.log(data);
         
         if ( !data['message'] )
         	return;
