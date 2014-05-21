@@ -10,7 +10,7 @@ jQuery(document).ready( function($) {
     $(document).on( 'heartbeat-tick.my_tick', function( e, data ) {
         
         // To understand better how it works just uncomment following lines and give a look at browser console
-        noty({text:'tick tock',closeWith:['click','hover'],timeout:5*60*1000});
+        //noty({text:'tick tock',closeWith:['click','hover'],timeout:5*60*1000});
 		console.log(data);
         
         if ( !data['message'] )
