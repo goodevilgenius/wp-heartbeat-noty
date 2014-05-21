@@ -1,12 +1,16 @@
+if (window.console == undefined) window.console = {};
+if (console.log == undefined) console.log = function() {};
+
 jQuery(document).ready( function($) {
 	
+	console.log("Enabling wp-heartbeat-noty");
 	var blabla;
 	
 	// Bum bum
     $(document).on( 'heartbeat-tick.my_tick', function( e, data ) {
         
         // To understand better how it works just uncomment following lines and give a look at browser console
-        noty('tick tock');
+        noty({text:'tick tock',closeWith:['click','hover'],timeout:5*60*1000});
 		console.log(data);
         
         if ( !data['message'] )

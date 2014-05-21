@@ -100,31 +100,16 @@ class Wp_Heartbeat_Noty {
 	 */
 	function send_data_to_heartbeat( $data, $screen_id ) {
 		
-		global $wpdb;
-		
-		$sql = $wpdb->prepare( 
-			"SELECT * FROM $wpdb->options WHERE option_name LIKE %s", 
-			'_transient_' . $this->args['domain'] . '_%'
-		);
-		
-		$notifications = $wpdb->get_results( $sql );
-		
-		if ( empty( $notifications ) )
-			return $data;
-		
-		$current_user = wp_get_current_user();
-		
-		foreach ( $notifications as $db_notification ) {
-			
-			$id = str_replace( '_transient_', '', $db_notification->option_name );
-			
-			if ( false !== ( $notification = get_transient( $id ) ) && $notification['user'] != md5( $current_user->user_login ) ) 
-				$data['message'][ $id ] = $notification;
-			
+		$notifications = get_transient($args['domain'] . "_heartbeat_noty");
+		if (empty($notifications)) $notifications = array();
+
+		foreach($notifications as $notification) {
+				if ($notification['user'] != md5($current_user->user_login))
+						$data['message'][] = $notification;
 		}
+		delete_transient($args['domain'] . "_heartbeat_noty");
 		
 		return $data;
-		
 	}
 	
 	/**
@@ -162,9 +147,13 @@ class Wp_Heartbeat_Noty {
 		);
 		
 		$args = array_merge( $default_args, $args );
-		
+		$store = get_transient($args['domain'] . "_heartbeat_noty");
+		if (empty($store)) $store = array();
+
+		$store[] = $args;
+
 		// If you want/need to change hearbeat rate remember to change transient duration
-		set_transient( $args['domain'] . '_' . mt_rand( 100000, 999999 ), $args, 15 );
+		set_transient( $args['domain'] . "_heartbeat_noty", $store, 60 );
 		
 	}
 
