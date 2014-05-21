@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Wp Heartbeat Noty (beta)
-Plugin URI: https://github.com/micc83/WpDevTool
-Description: Based on <strong>WordPress 3.6 heartbeat API</strong>, Wp Heartbeat Noty, display a realtime custom message to your visitor each time a new post is published with a link redirecting to it. Still in beta version, this plugin has been <strong>full tested only on WordPress 3.6-beta3</strong>.
+Plugin URI: https://github.com/goodevilgenius/wp-heartbeat-noty
+Description: Based on <strong>WordPress 3.6 heartbeat API</strong>, Wp Heartbeat Noty, display a realtime custom message to your visitor each time a new post is published with a link redirecting to it. Still in beta version.
 Version: 0.0.1
-Author: Alessandro Benoit
-Author URI: http://codeb.it
+Author: Dan Jones
+Author URI: http://danielrayjones.com/
 License: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
