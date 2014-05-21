@@ -63,14 +63,9 @@ class Wp_Heartbeat_Noty {
 	 * Bum, bum... it's aliveeeeee!!!
 	 */
 	function enqueue_my_stuff() {
-		
-		$dependency = array( 'heartbeat' );
-		
-		if ( $this->args['native_jquery'] ) 
-			$dependency[] = 'jquery';
-		
+		$dependency = ( $this->args['native_jquery'] ) ? 'jquery' : null;
 		wp_enqueue_script( 'noty_js', $this->args['base_url'] . '/js/noty/packaged/jquery.noty.packaged.min.js', $dependency, null, false );
-		wp_enqueue_script( 'wp_hearbeat_noty_js', $this->args['base_url'] . '/js/wp-heartbeat-noty.min.js', array('noty_js'), null, false );
+		wp_enqueue_script( 'wp_hearbeat_noty_js', $this->args['base_url'] . '/js/wp-heartbeat-noty.min.js', array('heartbeat','noty_js'), null, false );
 	}
 	
 	/**
